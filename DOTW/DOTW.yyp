@@ -36,6 +36,7 @@
   "resources":[
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"jhsssss","path":"sprites/jhsssss/jhsssss.yy",},},
     {"id":{"name":"mango_down","path":"sprites/mango_down/mango_down.yy",},},
     {"id":{"name":"mango_left","path":"sprites/mango_left/mango_left.yy",},},
     {"id":{"name":"mango_right","path":"sprites/mango_right/mango_right.yy",},},
@@ -44,6 +45,7 @@
     {"id":{"name":"manstand_sad","path":"sprites/manstand_sad/manstand_sad.yy",},},
     {"id":{"name":"manstnd8","path":"sprites/manstnd8/manstnd8.yy",},},
     {"id":{"name":"manstnd9","path":"sprites/manstnd9/manstnd9.yy",},},
+    {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
