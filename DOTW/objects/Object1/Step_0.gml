@@ -40,3 +40,8 @@ input_down = keyboard_check(ord("S"));
 
 x += movement_speed * movement_x;
 y += movement_speed * movement_y;
+
+
+// Smooth camera follow using lerp()
+view_xview[0] = lerp(view_xview[0], Object1.x - (view_wview[0] / 2), 0.1);
+view_yview[0] = lerp(view_yview[0], Object1.y - (view_hview[0] / 2), 0.1);
