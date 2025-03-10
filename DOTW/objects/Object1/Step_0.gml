@@ -48,4 +48,4 @@ view_yview[0] = lerp(view_yview[0], Object1 .y - (view_hview[0] / 2), 0.1);
 
 if(place_meeting(x, y + 2, my_tilemap))
 
-move_and_collide(move_x, move_y, my_tilemap);
+move_and_collide(movement_x, movement_y, my_tilemap);
