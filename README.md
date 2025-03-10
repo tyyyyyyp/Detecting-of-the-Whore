@@ -1,1 +1,1 @@
-This game is enspired of Undertale thaks to tobyfox
+This game is enspired by Undertale thaks to tobyfox
