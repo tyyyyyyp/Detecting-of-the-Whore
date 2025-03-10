@@ -35,6 +35,7 @@
   "name":"DOTW",
   "resources":[
     {"id":{"name":"camera","path":"objects/camera/camera.yy",},},
+    {"id":{"name":"obj_solide","path":"objects/obj_solide/obj_solide.yy",},},
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
     {"id":{"name":"locccccc","path":"rooms/locccccc/locccccc.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
@@ -60,6 +61,7 @@
     {"id":{"name":"TileSet5","path":"tilesets/TileSet5/TileSet5.yy",},},
     {"id":{"name":"TileSet6","path":"tilesets/TileSet6/TileSet6.yy",},},
     {"id":{"name":"TileSet7","path":"tilesets/TileSet7/TileSet7.yy",},},
+    {"id":{"name":"TileSet8","path":"tilesets/TileSet8/TileSet8.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

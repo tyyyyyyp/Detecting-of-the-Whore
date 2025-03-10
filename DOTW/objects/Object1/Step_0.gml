@@ -46,6 +46,10 @@ y += movement_speed * movement_y;
 view_xview[0] = lerp(view_xview[0], Object1.x - (view_wview[0] / 2), 0.1);
 view_yview[0] = lerp(view_yview[0], Object1 .y - (view_hview[0] / 2), 0.1);
 
-if(place_meeting(x, y + 2, my_tilemap)) 
-
-move_and_collide(movement_x, movement_y, my_tilemap);
+if (!place_meeting(x + hspeed, y, obj_solide)) {
+    x += hspeed;  
+}
+ 
+if (!place_meeting(x, y + vspeed, obj_solide)) {
+    y += vspeed;   
+}
