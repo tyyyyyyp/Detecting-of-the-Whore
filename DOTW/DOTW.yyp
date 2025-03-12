@@ -39,6 +39,7 @@
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
     {"id":{"name":"locccccc","path":"rooms/locccccc/locccccc.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"id":{"name":"dont","path":"sprites/dont/dont.yy",},},
     {"id":{"name":"jhsssss","path":"sprites/jhsssss/jhsssss.yy",},},
     {"id":{"name":"mango_down","path":"sprites/mango_down/mango_down.yy",},},
@@ -67,6 +68,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"locccccc","path":"rooms/locccccc/locccccc.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
