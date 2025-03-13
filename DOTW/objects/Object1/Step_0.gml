@@ -56,3 +56,4 @@ if (!place_meeting(x, new_y, obj_wall)) {
 // Камера слідує за персонажем
 view_xview[0] = lerp(view_xview[0], x - (view_wview[0] / 2), 0.1);
 view_yview[0] = lerp(view_yview[0], y - (view_hview[0] / 2), 0.1);
+
