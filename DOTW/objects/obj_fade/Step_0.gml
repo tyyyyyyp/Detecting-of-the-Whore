@@ -1,32 +1,10 @@
-// Якщо екран затемнюється
-if (fading_in)
-{
-    global.fade_alpha += fade_speed;
-    if (global.fade_alpha >= 1) 
-    {
-        global.fade_alpha = 1;  // Досягаємо максимальної прозорості (чорний екран)
-        fade_time += 1;
+// Якщо затемнення ще не завершено
+if (fading_in) {
+    global.fade_alpha += fade_speed; // Поступове затемнення
+    global.fade_alpha = min(global.fade_alpha, 1); // Переконуємось, що alpha не перевищить 1
+
+    if (global.fade_alpha >= 1) {
+        fading_in = false; // Зупиняємо процес затемнення
+        room_goto_next(); // Переходимо до наступної кімнати
     }
-}
-// Якщо екран висвітлюється
-else
-{
-    global.fade_alpha -= fade_speed;
-    if (global.fade_alpha <= 0) 
-    {
-        global.fade_alpha = 0;  // Мінімальна прозорість (повернення до прозорого екрану)
-    }
-}
-
-// Якщо екран затуманився і пройшло достатньо часу, переходимо до наступної кімнати
-if (fade_time > room_speed * 2)  // Після 2 секунд
-{
-    fading_in = false; // Починаємо висвітлення після завершення затемнення
-}
-
-
-// Якщо екран затуманився і пройшло достатньо часу, переходимо до наступної кімнати
-if (fade_time > room_speed * 0.5)  // Після 2 секунд
-{
-    room_goto_next(); // Перехід до наступної кімнати
 }

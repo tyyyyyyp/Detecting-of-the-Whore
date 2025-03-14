@@ -36,6 +36,7 @@
   "resources":[
     {"id":{"name":"camera","path":"objects/camera/camera.yy",},},
     {"id":{"name":"obj_fade","path":"objects/obj_fade/obj_fade.yy",},},
+    {"id":{"name":"obj_overlay","path":"objects/obj_overlay/obj_overlay.yy",},},
     {"id":{"name":"obj_trigger","path":"objects/obj_trigger/obj_trigger.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
