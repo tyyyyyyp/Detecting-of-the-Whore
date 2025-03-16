@@ -59,6 +59,14 @@ if (!place_meeting(x, new_y, obj_wall)) {
     while (!place_meeting(x, y + sign(move_y), obj_wall)) {
         y += sign(move_y); // Додаємо 1 піксель за раз для точності
     }
+    // Якщо зіткнення з верхньою стіною
+    if (sign(move_y) == -1) {
+        sprite_index = man_kiss_wall_up;
+    }
+    // Якщо зіткнення з нижньою стіною
+    if (sign(move_y) == 1) {
+        sprite_index = man_kiss_wall_down;
+    }
 }
 
 // Камера слідує за персонажем
