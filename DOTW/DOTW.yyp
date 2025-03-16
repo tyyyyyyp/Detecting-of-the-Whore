@@ -45,6 +45,8 @@
     {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"id":{"name":"dont","path":"sprites/dont/dont.yy",},},
     {"id":{"name":"jhsssss","path":"sprites/jhsssss/jhsssss.yy",},},
+    {"id":{"name":"man_kiss_wall_left","path":"sprites/man_kiss_wall_left/man_kiss_wall_left.yy",},},
+    {"id":{"name":"man_kiss_wall_right","path":"sprites/man_kiss_wall_right/man_kiss_wall_right.yy",},},
     {"id":{"name":"mango_down","path":"sprites/mango_down/mango_down.yy",},},
     {"id":{"name":"mango_left","path":"sprites/mango_left/mango_left.yy",},},
     {"id":{"name":"mango_right","path":"sprites/mango_right/mango_right.yy",},},

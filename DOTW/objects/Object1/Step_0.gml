@@ -42,6 +42,14 @@ if (!place_meeting(new_x, y, obj_wall)) {
     while (!place_meeting(x + sign(move_x), y, obj_wall)) {
         x += sign(move_x); // Додаємо 1 піксель за раз для точності
     }
+    // Якщо зіткнення з лівою стіною
+    if (sign(move_x) == -1) {
+        sprite_index = man_kiss_wall_left;
+    }
+    // Якщо зіткнення з правою стіною
+    if (sign(move_x) == 1) {
+        sprite_index = man_kiss_wall_right;
+    }
 }
 
 // Рух по осі Y (вертикально)
@@ -56,4 +64,3 @@ if (!place_meeting(x, new_y, obj_wall)) {
 // Камера слідує за персонажем
 view_xview[0] = lerp(view_xview[0], x - (view_wview[0] / 2), 0.1);
 view_yview[0] = lerp(view_yview[0], y - (view_hview[0] / 2), 0.1);
-
