@@ -9,3 +9,6 @@ initialized = false;
 scene_time = 0; // Лічильник часу
 finished = false; // Катсцена ще не завершена
 alpha = 0; // Початкова прозорість
+
+
+
