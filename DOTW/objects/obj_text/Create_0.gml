@@ -1,1 +1,5 @@
-text_string = "yo"
+// Ініціалізація глобальних змінних при старті
+global.text_string = "This is a new message.";  // Текст для відображення
+global.current_char = 0;  // Індекс поточної букви
+global.text_speed = 0.1;   // Затримка між буквами (від 0 до 1, де 0 — швидко, а 1 — повільно)
+global.last_time = 0;      // Час останнього оновлення
