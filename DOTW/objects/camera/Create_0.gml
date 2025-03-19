@@ -1,7 +1,7 @@
  camWidth = 640;
  camHeight =360
  
- follow = Object1;
+ follow = obj_player;
  
  xTo = x;
  xTo = y;
