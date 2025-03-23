@@ -1,4 +1,4 @@
- // Дебаг: вивести відстань до obj_trigger
+  // Дебаг: вивести відстань до obj_trigger
 show_debug_message("Distance: " + string(distance_to_object(obj_trigger)));
 
 // Перевірка, чи персонаж поруч з obj_trigger
