@@ -7,8 +7,10 @@ if (dist_back <= 100) {
     if (keyboard_check_pressed(vk_space)) {  // Можна змінити на іншу клавішу або спосіб активації
         // Створюємо об'єкт для ефекту переходу
         instance_create_layer(0, 0, "Instances", obj_transition);
+// Перевірка, чи є попередня кімната
+if (room_goto_previous()) {
+    show_message("Повернення в попередню кімнату!");
+}
 
-        // Переходимо в попередню кімнату
-        room_goto(global.previous_room);
     }
 }
