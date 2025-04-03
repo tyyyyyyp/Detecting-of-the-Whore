@@ -100,6 +100,8 @@
     {"id":{"name":"spr_button_heal","path":"sprites/spr_button_heal/spr_button_heal.yy",},},
     {"id":{"name":"spr_button_magic_2","path":"sprites/spr_button_magic_2/spr_button_magic_2.yy",},},
     {"id":{"name":"spr_button_magic","path":"sprites/spr_button_magic/spr_button_magic.yy",},},
+    {"id":{"name":"spr_frame_2","path":"sprites/spr_frame_2/spr_frame_2.yy",},},
+    {"id":{"name":"spr_frame","path":"sprites/spr_frame/spr_frame.yy",},},
     {"id":{"name":"sPRITE","path":"sprites/sPRITE/sPRITE.yy",},},
     {"id":{"name":"Sprite10","path":"sprites/Sprite10/Sprite10.yy",},},
     {"id":{"name":"Sprite11","path":"sprites/Sprite11/Sprite11.yy",},},

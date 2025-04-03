@@ -1,4 +1,4 @@
-// Draw the player's sprite (this line is for the player’s basic draw call)
+ // Draw the player's sprite (this line is for the player’s basic draw call)
 draw_self();
 
 // Health Bar with margin and background
@@ -15,10 +15,10 @@ draw_rectangle(5, 35, 205, 65, false);  // Background for mana bar with margin
 
 // Draw Mana Bar (with margin)
 draw_set_color(c_blue);
-draw_rectangle(10, 40, 10 + (mana / max_mana) * 200, 60, false);
+draw_rectangle(250, 10, 250 + (mana / max_mana) * 200, 35, false);
 
 // Draw Text for Health and Mana
 draw_set_color(c_white);
 draw_set_font(Font1);
-draw_text(10, 70, "Health: " + string(health));
-draw_text(10, 90, "Mana: " + string(mana));
+draw_text(10, 50, "Health: " + string(health));
+draw_text(265, 50, "Mana: " + string(mana));
