@@ -17,3 +17,12 @@ hurt_time = 30; // Час між отриманнями урону в кадра
 
 health_regen_rate = 0.001;
 interaction_timer = 15;
+
+move_speed = 6;
+
+dash_cooldown = 10;
+
+dash_time = 1;
+dash_speed = 10;
+cooldown_bar_width = 30;
+bar_height = 200;

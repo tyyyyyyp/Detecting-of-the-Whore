@@ -54,3 +54,14 @@ if (distance_to_button <= 50) {
 
 // Ensure health never goes below 0
 health = max(health, 0);
+
+// Dash variables
+var dash_cooldown = 0;         // Dash cooldown timer
+var dash_time = 5 * room_speed; // Cooldown in frames (5 seconds)
+var dash_mana_cost = 10;       // Mana cost for dash
+var dash_speed = 10;           // Speed multiplier for dash (adjust as needed)
+
+// Bar Variables (for the cooldown display)
+var cooldown_bar_width = 100;  // Width of the cooldown bar
+var bar_height = 10;           // Height of the cooldown bar
+
