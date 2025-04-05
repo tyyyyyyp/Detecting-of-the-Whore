@@ -9,3 +9,8 @@ if (shoot_cooldown >= shoot_time) {
     // Скидаємо кулдаун
     shoot_cooldown = 0;
 }
+// Перевіряємо здоров'я ворога
+if (hp <= 0) {
+    instance_destroy(); // Знищуємо ворога
+}
+

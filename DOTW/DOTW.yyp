@@ -57,6 +57,7 @@
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
     {"id":{"name":"obj_trigger_2","path":"objects/obj_trigger_2/obj_trigger_2.yy",},},
     {"id":{"name":"obj_trigger_back","path":"objects/obj_trigger_back/obj_trigger_back.yy",},},
+    {"id":{"name":"obj_trigger_exit","path":"objects/obj_trigger_exit/obj_trigger_exit.yy",},},
     {"id":{"name":"obj_trigger","path":"objects/obj_trigger/obj_trigger.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Object11","path":"objects/Object11/Object11.yy",},},
@@ -129,8 +130,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room4","path":"rooms/Room4/Room4.yy",},},
+    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"trash","path":"rooms/trash/trash.yy",},},
     {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
   ],

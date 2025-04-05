@@ -22,3 +22,8 @@ draw_set_color(c_white);
 draw_set_font(Font1);
 draw_text(10, 50, "Health: " + string(health));
 draw_text(265, 50, "Mana: " + string(mana));
+
+// Малюємо повідомлення на екрані, якщо монстр був пощаджений
+if (show_heal_message) {
+    draw_text(320, 240, "Ви пощадили монстра!"); // Виводимо текст в центрі екрану
+}

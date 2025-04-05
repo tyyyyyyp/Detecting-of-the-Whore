@@ -65,3 +65,38 @@ var dash_speed = 10;           // Speed multiplier for dash (adjust as needed)
 var cooldown_bar_width = 100;  // Width of the cooldown bar
 var bar_height = 10;           // Height of the cooldown bar
 
+// Перевірка для пощадження ворога
+if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))) {
+    // Знайти ворога
+    var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
+    if (target != noone) {
+        // Пощадити монстра
+        target.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
+        
+        // Створюємо тригер після пощадження монстра
+        instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+
+    }
+}
+
+// Перевірка для атаки ворога
+if (distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {
+    // Знайти ворога
+    var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
+    if (target != noone) {
+        // Якщо мана достатня для атаки (20 мани для кожної атаки)
+        if (mana >= 20) {
+            target.hp -= 10;  // Віднімаємо 10 HP ворогу
+            mana -= 20;  // Витрачаємо 20 мани
+ 
+
+            // Якщо ворог вбитий, створюємо тригер
+            if (target.hp <= 0) {
+                instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+  
+            }
+        } else {
+;
+        }
+    }
+}

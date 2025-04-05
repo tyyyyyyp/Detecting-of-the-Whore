@@ -26,3 +26,5 @@ dash_time = 1;
 dash_speed = 10;
 cooldown_bar_width = 30;
 bar_height = 200;
+
+show_heal_message = false;  // Спочатку текст не показується
