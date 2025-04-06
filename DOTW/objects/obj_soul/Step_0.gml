@@ -70,14 +70,20 @@ if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))
     // Знайти ворога
     var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
     if (target != noone) {
-        // Пощадити монстра
-        target.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
-        
-        // Створюємо тригер після пощадження монстра
-        instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+        // Перевірка, чи в монстра HP менше 35
+        if (target.hp < 35) {
+            // Пощадити монстра
+            target.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
 
+            // Створюємо тригер після пощадження монстра
+            instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+        } else {
+            // Можна додати інший код, якщо монстр має більше 35 HP (наприклад, показати повідомлення)
+          
+        }
     }
 }
+
 
 // Перевірка для атаки ворога
 if (distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {

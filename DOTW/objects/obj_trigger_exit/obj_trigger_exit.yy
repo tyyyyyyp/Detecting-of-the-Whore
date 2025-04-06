@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"man_kiss_wall_down",
-    "path":"sprites/man_kiss_wall_down/man_kiss_wall_down.yy",
+    "name":"Sprite50",
+    "path":"sprites/Sprite50/Sprite50.yy",
   },
   "spriteMaskId":null,
   "visible":true,
