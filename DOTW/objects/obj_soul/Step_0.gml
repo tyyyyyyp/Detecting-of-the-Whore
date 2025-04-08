@@ -37,13 +37,26 @@ if (health > 0) {
     // This part handles the damage logic (like from bullets or other sources)
 }
 
-// Cooldown for taking damage
+// Оновлюємо кулдаун на кожен крок
 hurt_cooldown += 1;
 
-// Check if the cooldown is over
+// Якщо кулдаун закінчився, перевіряємо отримання урону
 if (hurt_cooldown >= hurt_time) {
-    hurt_cooldown = 0;  // Reset the cooldown
+    hurt_cooldown = 0;  // Скидаємо кулдаун після закінчення часу
 }
+
+// Додаємо логіку для отримання урону при зіткненні з кулею
+if (place_meeting(x, y, obj_bullet)) {
+    // Перевіряємо, чи пройшов кулдаун
+    if (hurt_cooldown == 0) {
+        // Застосовуємо урон
+        health -= 10;  // Наприклад, віднімаємо 10 від здоров'я
+        
+        // Відновлюємо кулдаун
+        hurt_cooldown = 1; // Встановлюємо кулдаун після отримання урону
+    }
+}
+
 
 // Interaction with Magic Button
 var distance_to_button = point_distance(x, y, obj_button_magic.x, obj_button_magic.y);
