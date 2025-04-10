@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"dont",
-    "path":"sprites/dont/dont.yy",
+    "name":"Sprite52",
+    "path":"sprites/Sprite52/Sprite52.yy",
   },
   "spriteMaskId":null,
   "visible":true,

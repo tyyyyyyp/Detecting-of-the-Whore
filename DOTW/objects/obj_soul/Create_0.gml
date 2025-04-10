@@ -15,7 +15,7 @@ mana_regen_rate = 0.05;   // Швидкість відновлення мани
 hurt_cooldown = 0; // Кулдаун на отримання урону
 hurt_time = 30; // Час між отриманнями урону в кадрах (приблизно 1 секунд)
 
-health_regen_rate = 0.001;
+health_regen_rate = 0.01;
 interaction_timer = 15;
 
 move_speed = 6;

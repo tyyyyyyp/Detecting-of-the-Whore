@@ -33,10 +33,10 @@ if (shoot_cooldown >= shoot_time) {
 
     for (var i = 0; i < homing_bullet_count; i++) {
         // Випадкова горизонтальна координата для кожної пульки
-        var bullet_x = random(room_width);
+        var bullet_x = 1200;
         
         // Випадкова вертикальна координата в межах кімнати
-        var bullet_y = random(room_height);
+        var bullet_y = 500;
         
         // Створюємо пульку, що слідкує за гравцем
         var homing_bullet = instance_create_layer(bullet_x, bullet_y, "Instances", obj_homing_bullet);
