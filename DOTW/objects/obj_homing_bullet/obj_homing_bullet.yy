@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite41",
-    "path":"sprites/Sprite41/Sprite41.yy",
+    "name":"spr_houming_attack",
+    "path":"sprites/spr_houming_attack/spr_houming_attack.yy",
   },
   "spriteMaskId":null,
   "visible":true,

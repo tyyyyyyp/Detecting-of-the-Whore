@@ -111,7 +111,7 @@ if (distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E")
 
             // Якщо ворог вбитий, створюємо тригер
             if (target.hp <= 0) {
-                instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+                instance_create_layer(800, 400, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
   
             }
         } else {
