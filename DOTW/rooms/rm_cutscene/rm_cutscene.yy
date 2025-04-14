@@ -1,13 +1,13 @@
 {
   "$GMRoom":"v1",
-  "%Name":"Room3",
+  "%Name":"rm_cutscene",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_11BE287","path":"rooms/Room3/Room3.yy",},
-    {"name":"inst_15580F5D","path":"rooms/Room3/Room3.yy",},
+    {"name":"inst_11BE287","path":"rooms/rm_cutscene/rm_cutscene.yy",},
+    {"name":"inst_15580F5D","path":"rooms/rm_cutscene/rm_cutscene.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -19,7 +19,7 @@
       ],"layers":[],"name":"Instances_2","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"Room3",
+  "name":"rm_cutscene",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",

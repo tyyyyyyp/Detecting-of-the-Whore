@@ -1,5 +1,5 @@
 // Перевірка на відстань між гравцем та об'єктом
-if (point_distance(obj_player.x, obj_player.y, x, y) < 100 && keyboard_check_pressed(ord("E"))) {
+if (point_distance(obj_player_2.x, obj_player_2.y, x, y) < 100 && keyboard_check_pressed(ord("E"))) {
     text_time = 0;  // Починаємо відлік часу з моменту натискання клавіші
     current_char = 0;  // Починаємо з першого символа
     text_display_time = -1;  // Скидаємо таймер для затримки після появи
@@ -31,3 +31,8 @@ draw_set_font(Font1);  // Встановлюємо шрифт Font1
 // Відображаємо частину тексту
 draw_text(x + 100, y - 100, string_copy(text_to_show, 1, current_char));
 
+if (ds_map_exists(global.room_texts, room)) {
+    text_to_show = global.room_texts[? room];
+} else {
+    text_to_show = "";  // Якщо тексту немає, не показуємо нічого
+}
