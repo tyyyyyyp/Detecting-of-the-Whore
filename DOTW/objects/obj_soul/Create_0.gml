@@ -28,3 +28,12 @@ cooldown_bar_width = 30;
 bar_height = 200;
 
 show_heal_message = false;  // Спочатку текст не показується
+
+attack_pending = false;
+attack_timer = 0;
+attack_target = noone;
+
+magic_locked = false;
+magic_lock_timer = 0;
+heal_locked = false;
+heal_lock_timer = 0;

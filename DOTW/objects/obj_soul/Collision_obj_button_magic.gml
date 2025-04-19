@@ -1,4 +1,4 @@
-// Перевірка, чи натиснута кнопка E
+ // Перевірка, чи натиснута кнопка E
 if (keyboard_check_pressed(ord("E")))
  if (distance_to_object(obj_trigger) < 50) {
     // Якщо ману вистачає
