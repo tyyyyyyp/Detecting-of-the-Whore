@@ -80,12 +80,12 @@ var bar_height = 10;           // Height of the cooldown bar
 
 // Перевірка для пощадження ворога
 if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))) {
-    // Знайти ворога
+
     var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
     if (target != noone) {
         // Перевірка, чи в монстра HP менше 35
         if (target.hp < 35) {
-            // Пощадити монстра
+           audio_play_sound(snd_press,0,false)
             target.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
 
             // Створюємо тригер після пощадження монстра
@@ -109,12 +109,13 @@ if (magic_locked) {
 
 // ⚔️ Перевірка атаки
 if (!attack_pending && !magic_locked && distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {
-    var target = instance_find(obj_enemy, 0);
+   
+   var target = instance_find(obj_enemy, 0);
     if (target != noone && mana >= 20) {
         // Запускаємо ефект
         instance_create_layer(1165, 410, "Effects", obj_attack_effect);
 
-        // Встановлюємо таймер анімації та ціль
+        audio_play_sound(Sound4,0,false)
         attack_pending = true;
         attack_timer = room_speed; // 1 секунда
         attack_target = target;
@@ -154,14 +155,14 @@ if (heal_locked) {
 
 // Хілка, тільки якщо кулдаун неактивний
 if (!heal_locked &&  distance_to_object(obj_button_heal) < 50 && keyboard_check_pressed(ord("E"))) {
-    // Перевірка мани
+  audio_play_sound(snd_press,0,false)
     if (mana >= 20) {
         // Перевірка чи є що лікувати
         if (health < 100) {
             // Виконуємо хілку
             mana -= 20;
             health = min(health + 30, 100);
-            audio_play_sound(snd_heal, 0, false);
+           
 
             // Запускаємо кулдаун тільки якщо справді хілка пройшла
             heal_locked = true;

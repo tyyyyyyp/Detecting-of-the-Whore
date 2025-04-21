@@ -9,7 +9,7 @@ if (shoot_cooldown >= shoot_time) {
     // Якщо атак було менше 7 разів, створюємо звичайні пульки
     if (attack_count < 7) {
         // Створюємо кілька пульок знизу екрану
-        var bullet_count = 10; // Кількість пульок, які будемо створювати одночасно
+        var bullet_count = 5; // Кількість пульок, які будемо створювати одночасно
         for (var i = 0; i < bullet_count; i++) {
             // Випадкова горизонтальна координата для кожної пульки
             var bullet_x = random(room_width);
@@ -42,7 +42,7 @@ if (shoot_cooldown >= shoot_time) {
         var homing_bullet = instance_create_layer(bullet_x, bullet_y, "Instances", obj_homing_bullet);
         
         // Встановлюємо властивість слідкування (5 секунд)
-        homing_bullet.homing_time = 1 * room_speed; // 5 секунд слідкування за гравцем
+        homing_bullet.homing_time = 2 * room_speed; // 5 секунд слідкування за гравцем
         homing_bullet.target = obj_soul; // Ціль - гравець
     }
 
