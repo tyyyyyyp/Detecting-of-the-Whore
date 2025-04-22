@@ -138,6 +138,7 @@
     {"id":{"name":"Sprite52","path":"sprites/Sprite52/Sprite52.yy",},},
     {"id":{"name":"Sprite55","path":"sprites/Sprite55/Sprite55.yy",},},
     {"id":{"name":"Sprite57","path":"sprites/Sprite57/Sprite57.yy",},},
+    {"id":{"name":"Sprite62","path":"sprites/Sprite62/Sprite62.yy",},},
     {"id":{"name":"transition","path":"sprites/transition/transition.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
     {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},},
@@ -152,8 +153,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
     {"roomId":{"name":"rm_Title","path":"rooms/rm_Title/rm_Title.yy",},},
+    {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
     {"roomId":{"name":"rm_trash","path":"rooms/rm_trash/rm_trash.yy",},},
     {"roomId":{"name":"rm_gost","path":"rooms/rm_gost/rm_gost.yy",},},
     {"roomId":{"name":"Room4","path":"rooms/Room4/Room4.yy",},},

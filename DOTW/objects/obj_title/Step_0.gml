@@ -8,6 +8,12 @@ image_index = 1;
 room_goto(startRoom);
 var inst = instance_create_layer(startX,startY,"player", obj_player_2)
 
-}else if image_index = 2 and (keyboard_check_pressed(ord("E"))){
-	
+} else if image_index == 2 and keyboard_check_pressed(ord("E")) {
+    var file_name = "save.sav";
+    if (file_exists(file_name)) {
+        file_delete(file_name);
+    }
+
+    // Повністю перезапускаємо гру
+    game_restart();
 }

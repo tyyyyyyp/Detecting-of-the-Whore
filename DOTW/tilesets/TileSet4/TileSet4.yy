@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"Sprite12",
-    "path":"sprites/Sprite12/Sprite12.yy",
+    "name":"Sprite62",
+    "path":"sprites/Sprite62/Sprite62.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
