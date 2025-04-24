@@ -36,8 +36,8 @@
   ],
   "name":"Room4",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"1 location",
+    "path":"folders/Rooms/1 location.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

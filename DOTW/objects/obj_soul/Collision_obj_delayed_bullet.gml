@@ -1,0 +1,1 @@
+health -= obj_delayed_bullet.damage;  // Віднімаємо шкоду від здоров'я гравця

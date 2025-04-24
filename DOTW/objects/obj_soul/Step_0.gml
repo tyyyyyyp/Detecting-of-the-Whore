@@ -133,7 +133,7 @@ if (attack_pending) {
 
     if (attack_timer <= 0) {
         if (instance_exists(attack_target)) {
-            attack_target.hp -= 10;
+            attack_target.hp -= 100;
             mana -= 20;
 
             // Якщо ворог мертвий — тригер
@@ -173,5 +173,73 @@ if (!heal_locked &&  distance_to_object(obj_button_heal) < 50 && keyboard_check_
         }
     } else {
         show_debug_message("Нема мани для хілки.");
+    }
+}
+
+
+
+// 🔐 Якщо магія ще заблокована — чекаємо
+if (magic_locked) {
+    magic_lock_timer -= 1;
+    if (magic_lock_timer <= 0) {
+        magic_locked = false;
+        show_debug_message("Магія розблокована");
+    }
+}
+
+// ⚔️ Перевірка атаки
+if (!attack_pending && !magic_locked && distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {
+   
+   var target_2 = instance_find(obj_enemy_2, 0);
+    if (target_2 != noone && mana >= 20) {
+        // Запускаємо ефект
+        instance_create_layer(1165, 410, "Effects", obj_attack_effect);
+
+        audio_play_sound(Sound4,0,false)
+        attack_pending = true;
+        attack_timer = room_speed; // 1 секунда
+        attack_target = target_2;
+
+        // 🔐 Блокуємо кнопку на 10 секунд
+        magic_locked = true;
+        magic_lock_timer = room_speed * 10;
+        show_debug_message("Магія заблокована на 10 секунд");
+    }
+}
+
+// ⏳ Чекаємо завершення ефекту
+if (attack_pending) {
+    attack_timer -= 1;
+
+    if (attack_timer <= 0) {
+        if (instance_exists(attack_target)) {
+            attack_target.hp -= 100;
+            mana -= 20;
+
+            // Якщо ворог мертвий — тригер
+            if (attack_target.hp <= 0) {
+                instance_create_layer(800, 400, "Instances", obj_trigger_exit);
+            }
+        }
+        attack_pending = false;
+    }
+}
+
+// Перевірка для пощадження ворога
+if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))) {
+
+    var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
+    if (target_2 != noone) {
+        // Перевірка, чи в монстра HP менше 35
+        if (target_2.hp < 35) {
+           audio_play_sound(snd_press,0,false)
+            target_2.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
+
+            // Створюємо тригер після пощадження монстра
+            instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+        } else {
+            // Можна додати інший код, якщо монстр має більше 35 HP (наприклад, показати повідомлення)
+          
+        }
     }
 }

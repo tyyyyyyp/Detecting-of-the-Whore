@@ -3,7 +3,7 @@
   "%Name":"man_kiss_wall_left_2",
   "bboxMode":2,
   "bbox_bottom":142,
-  "bbox_left":83,
+  "bbox_left":79,
   "bbox_right":131,
   "bbox_top":66,
   "collisionKind":1,

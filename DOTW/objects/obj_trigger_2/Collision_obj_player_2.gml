@@ -1,2 +1,3 @@
-// Створюємо ефект переходу (плавне затемнення екрана)
-instance_create_layer(0, 0, "Effects", obj_transition);
+if keyboard_check_pressed(vk_enter){
+room_goto(rm_trash)
+}

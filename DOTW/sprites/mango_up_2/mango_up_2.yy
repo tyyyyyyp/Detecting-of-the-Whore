@@ -3,7 +3,7 @@
   "%Name":"mango_up_2",
   "bboxMode":2,
   "bbox_bottom":141,
-  "bbox_left":92,
+  "bbox_left":96,
   "bbox_right":129,
   "bbox_top":64,
   "collisionKind":1,
