@@ -10,7 +10,7 @@ if (month == 12 || month == 1 || month == 2) {
 } else if (month >= 9 && month <= 11) {
     season_text = "GO TO SCHOOL";
 } else {
-    season_text = "Невідома пора року";
+    season_text = "pu-pu-pu";
 }
 season_text_surface = -1; // Поки що порожня поверхня
 rotation = 10;
