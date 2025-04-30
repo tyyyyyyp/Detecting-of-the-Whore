@@ -1,3 +1,5 @@
+
+
 // Зміна спрайтів і обробка натискання клавіші E
 if (image_index == 0 and keyboard_check_pressed(ord("E"))) {
     image_index = 1;

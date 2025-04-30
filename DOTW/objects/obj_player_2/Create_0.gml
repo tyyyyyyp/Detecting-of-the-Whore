@@ -3,8 +3,14 @@
 
 my_tilemap = layer_tilemap_get_id("Tiles_8");	
 
-global.inventory = []; // Створюємо порожній масив інвентаря
-global.inventory_open = false; // Початково інвентар закритий
-global.inventory_index = 0;
-global.equipped_item = "none"; // або "" якщо хочеш порожнє значення
+inventory = []; // Створюємо порожній масив інвентаря
+inventory_open = false; // Початково інвентар закритий
+inventory_index = 0;
+equipped_item = "none"; // або "" якщо хочеш порожнє значення
 
+// Ініціалізуємо інвентар
+
+
+if (variable_global_exists("loadedInventory")) {
+    inventory = global.loadedInventory; // передаємо збережений інвентар
+}

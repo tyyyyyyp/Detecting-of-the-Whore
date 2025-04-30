@@ -2,11 +2,11 @@
 
 // Перемикаємо інвентар
 if (keyboard_check_pressed(vk_enter)) {
-    global.inventory_open = !global.inventory_open;
+    inventory_open = !inventory_open;
 }
 
 // --- УВАГА: все, що нижче, буде виконуватись ТІЛЬКИ коли інвентар закритий ---
-if (!global.inventory_open) {
+if (!inventory_open) {
 
     // Отримуємо введення з клавіатури
     input_left = keyboard_check(ord("A"));
@@ -80,7 +80,7 @@ if (!global.inventory_open) {
         var pickup_range = 16;
         var item = instance_place(x, y, obj_item);
         if (item != noone) {
-            array_push(global.inventory, item.item_id);
+            array_push(inventory, item.item_id);
             with (item) {
                 instance_destroy();
             }
@@ -89,27 +89,27 @@ if (!global.inventory_open) {
 }
 
 // --- Обробка навігації інвентаря ---
-if (global.inventory_open) {
+if (inventory_open) {
 	sprite_index = man_watch_inv
     if (keyboard_check_pressed(ord("W"))) {
-        global.inventory_index -= 1;
-        if (global.inventory_index < 0) {
-            global.inventory_index = array_length(global.inventory) - 1;
+        inventory_index -= 1;
+        if (inventory_index < 0) {
+            inventory_index = array_length(inventory) - 1;
         }
     }
 
     if (keyboard_check_pressed(ord("S"))) {
-        global.inventory_index += 1;
-        if (global.inventory_index >= array_length(global.inventory)) {
-            global.inventory_index = 0;
+        inventory_index += 1;
+        if (inventory_index >= array_length(inventory)) {
+            inventory_index = 0;
         }
     }
 
     // Одягання предмета (наприклад, на пробіл)
     if (keyboard_check_pressed(vk_space)) {
-        if (array_length(global.inventory) > 0) {
-            global.equipped_item = global.inventory[global.inventory_index];
-            show_debug_message("Одягнуто: " + string(global.equipped_item));
+        if (array_length(inventory) > 0) {
+            equipped_item = inventory[inventory_index];
+            show_debug_message("Одягнуто: " + string(equipped_item));
         }
     }
 }
