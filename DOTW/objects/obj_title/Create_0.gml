@@ -1,3 +1,3 @@
-startRoom = rm_trash;
-startX = 669;
-startY = 1728;
+startr = rm_trash
+startX = 700
+startY = 1770

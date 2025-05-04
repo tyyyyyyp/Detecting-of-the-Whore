@@ -1,9 +1,6 @@
-item_id = "wind staff"; // Або унікальний ідентифікатор, наприклад: "sword", "key", тощо
-if (variable_global_exists("inventory")) {
-    if (array_contains(obj_player_2.inventory, item_id)) {
-        instance_destroy(); // Цей предмет вже у гравця — не показуємо його
-    }
+// Встановлюємо тип предмету, наприклад, Wind Staff (ID = 5)
+item_id = 1;  // ID предмету "Wind Staff"
+if (!variable_global_exists("items_picked")) {
+    global.items_picked = array_create(100, false); // Під 100 предметів, змінюй при потребі
 }
-if (array_contains(obj_player_2.inventory, item_id)) {
-    instance_destroy(); // Гравець вже підняв цей предмет
-}
+item_uid = 0; // Унікальний номер для кожного предмета, не дублюй!

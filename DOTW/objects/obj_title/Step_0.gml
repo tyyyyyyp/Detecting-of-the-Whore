@@ -1,23 +1,20 @@
-
-
-// Зміна спрайтів і обробка натискання клавіші E
-if (image_index == 0 and keyboard_check_pressed(ord("E"))) {
+// Просте меню з перемиканням спрайтів
+if (image_index == 0 && keyboard_check_pressed(ord("E"))) {
     image_index = 1;
-} else if (image_index == 1 and keyboard_check(ord("D"))) {
+} else if (image_index == 1 && keyboard_check(ord("D"))) {
     image_index = 2;
-} else if (image_index == 2 and keyboard_check(ord("A"))) {
+} else if (image_index == 2 && keyboard_check(ord("A"))) {
     image_index = 1;
-} else if (image_index == 1 and keyboard_check_pressed(ord("E"))) {
-    // Переходить до кімнати, де була збережена інформація
-    room_goto(startRoom);  // переходимо в кімнату, яка збережена
-    var inst = instance_create_layer(startX, startY, "player", obj_player_2);  // створюємо нового гравця на збережених координатах
-} else if (image_index == 2 and keyboard_check_pressed(ord("E"))) {
-    // Якщо спрайт == 2, перезапускаємо гру
-    var file_name = "save.sav";
-    if (file_exists(file_name)) {
-        file_delete(file_name);  // видаляємо файл збереження
-    }
-
-    // Перезапускаємо гру
-    game_restart();
+} else if (image_index == 1 && keyboard_check_pressed(ord("E"))) {
+   room_goto(startr)
+   var jjjj = instance_create_layer(startX,startY,"Effects",obj_player_2) 
+   if (file_exists("save.sav")) {
+        // Завантажити гру
+        load_game();
+   }
+} else if (image_index == 2 && keyboard_check_pressed(ord("E"))) {
+   if file_exists("save.sav"){
+	   file_delete("save.sav")
+   }
+    game_restart(); // Перезапуск гри після очищення збереження
 }

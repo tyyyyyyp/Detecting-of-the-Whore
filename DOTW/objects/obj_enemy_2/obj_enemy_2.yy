@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"mango_left_2",
-    "path":"sprites/mango_left_2/mango_left_2.yy",
+    "name":"OBJ_I",
+    "path":"sprites/OBJ_I/OBJ_I.yy",
   },
   "spriteMaskId":null,
   "visible":true,

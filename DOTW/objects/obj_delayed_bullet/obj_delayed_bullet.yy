@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_atttttttttack",
-    "path":"sprites/spr_player_atttttttttack/spr_player_atttttttttack.yy",
+    "name":"Sprite70",
+    "path":"sprites/Sprite70/Sprite70.yy",
   },
   "spriteMaskId":null,
   "visible":true,
