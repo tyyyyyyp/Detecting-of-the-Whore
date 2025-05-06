@@ -1,42 +1,42 @@
 if (!global.inventory_open) exit;
 
-// Фон інвентаря
 draw_set_color(c_black);
-draw_rectangle(50, 50, 300, 330, false);
+draw_rectangle(50, 50, 300, 500, false);
+
 draw_set_color(c_white);
 draw_text(110, 60, "INVENTORY:");
+draw_text(110, 340, "IS USED:");
 
-// Виведення слотів
+draw_set_color(c_ltgray);
+draw_text(250, 60, mode == "inventory" ? "<" : "");
+draw_text(250, 340, mode == "used" ? "<" : "");
+
+// --- Вивід інвентаря ---
 for (var i = 0; i < 8; i++) {
     var slot_y = 90 + i * 28;
     var item_id = global.inventory[i];
 
-    // Якщо слот порожній, пропускаємо відображення
-    if (item_id == 0) continue;
+    if (i == selected_slot && mode == "inventory") {
+        draw_set_color(c_yellow);
+        draw_text(35, slot_y, ">>");
+    }
 
-    // Якщо предмет є в списку
     if (item_id > 0 && item_id <= array_length(global.item_list)) {
         var itemData = global.item_list[item_id - 1];
-        var item_name = itemData.name;
-
-        // Обраний слот
-        if (i == selected_slot) {
-            draw_set_color(c_yellow);
-            draw_text(35, slot_y, ">>");
-        }
-
-        // Виведення назви предмета
         draw_set_color(c_white);
-        draw_text(150, slot_y, item_name);
+        draw_text(150, slot_y, itemData.name);
     }
 }
 
-// Опис предмета
-var selected_item_id = global.inventory[selected_slot];
+// --- Вивід використаних ---
+for (var j = 0; j < array_length(global.used_items); j++) {
+    var used_y = 370 + j * 20;
 
-if (selected_item_id > 0 && selected_item_id <= array_length(global.item_list)) {
-    var itemData = global.item_list[selected_item_id - 1];
-    var item_name = itemData.name;
+    if (j == used_selected_slot && mode == "used") {
+        draw_set_color(c_orange);
+        draw_text(35, used_y, ">>");
+    }
 
-    draw_text(60, 330, "Item: " + item_name);
+    draw_set_color(c_white);
+    draw_text(130, used_y, global.used_items[j]);
 }

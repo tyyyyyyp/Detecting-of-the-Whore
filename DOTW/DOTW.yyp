@@ -64,6 +64,7 @@
     {"id":{"name":"obj_overlay","path":"objects/obj_overlay/obj_overlay.yy",},},
     {"id":{"name":"obj_player_2","path":"objects/obj_player_2/obj_player_2.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"obj_question","path":"objects/obj_question/obj_question.yy",},},
     {"id":{"name":"obj_season_faller","path":"objects/obj_season_faller/obj_season_faller.yy",},},
     {"id":{"name":"obj_soul","path":"objects/obj_soul/obj_soul.yy",},},
     {"id":{"name":"obj_text_trigger","path":"objects/obj_text_trigger/obj_text_trigger.yy",},},

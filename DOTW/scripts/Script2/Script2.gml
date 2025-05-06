@@ -20,24 +20,39 @@ function save_game()
         file_text_writeln(file);
     }
 
+    // Зберігаємо кількість використаних предметів
+    file_text_write_real(file, array_length(global.used_items));
+    file_text_writeln(file);
+
+    // Зберігаємо самі назви використаних предметів
+    for (var i = 0; i < array_length(global.used_items); i++) {
+        file_text_write_string(file, global.used_items[i]);
+        file_text_writeln(file);
+    }
+
     file_text_close(file);
 }
 
 
 
+
 function load_game()
 {
-    // Ініціалізація інвентаря, якщо він ще не існує
+    // Ініціалізація інвентаря
     if (!is_array(global.inventory)) {
-        global.inventory = array_create(8, 0); // 8 слотів по замовчуванню
+        global.inventory = array_create(8, 0);
     }
 
-    // Ініціалізація масиву підібраних предметів
+    // Ініціалізація підібраних предметів
     if (!variable_global_exists("items_picked")) {
-        global.items_picked = array_create(100, false); // Під 100 предметів
+        global.items_picked = array_create(100, false);
     }
 
-    // Завантаження збереження
+    // Ініціалізація використаних предметів
+    if (!variable_global_exists("used_items")) {
+        global.used_items = [];
+    }
+
     if (file_exists("save.sav"))
     {
         var file = file_text_open_read("save.sav");
@@ -49,16 +64,28 @@ function load_game()
         obj_player_2.y = file_text_read_real(file);
         file_text_readln(file);
 
-        // Завантаження інвентаря
+        // Інвентар
         for (var i = 0; i < 8; i++) {
             global.inventory[i] = file_text_read_real(file);
             file_text_readln(file);
         }
 
-        // Завантаження інформації про підібрані предмети
+        // Підібрані предмети
         for (var i = 0; i < array_length(global.items_picked); i++) {
             global.items_picked[i] = file_text_read_real(file);
             file_text_readln(file);
+        }
+
+        // Завантаження використаних предметів
+        var used_count = file_text_read_real(file);
+        file_text_readln(file);
+
+        global.used_items = []; // очищаємо перед завантаженням
+
+        for (var i = 0; i < used_count; i++) {
+            var used_name = file_text_read_string(file);
+            file_text_readln(file);
+            array_push(global.used_items, used_name);
         }
 
         file_text_close(file);

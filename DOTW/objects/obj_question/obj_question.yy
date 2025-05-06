@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_item",
+  "%Name":"obj_question",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_item",
+  "name":"obj_question",
   "overriddenProperties":[],
   "parent":{
     "name":"weapons",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_didro",
-    "path":"sprites/spr_didro/spr_didro.yy",
+    "name":"Sprite70",
+    "path":"sprites/Sprite70/Sprite70.yy",
   },
   "spriteMaskId":null,
   "visible":true,

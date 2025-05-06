@@ -9,5 +9,16 @@ if (global.items_picked == undefined) {
 selected_slot = 0;  // Ініціалізація вибраного слота
 
 global.item_list = [
-    {id: 1, name: "Wind Staff", atk: 5, type: "weapon"}  // Новий предмет
+    {id: 1, name: "Wind Staff", atk: 5, type: "weapon"},
+    {id: 2, name: "Question Staff", atk: 3, type: "weapon"}
 ];
+
+if (!variable_global_exists("used_items")) {
+    global.used_items = [];
+}
+// Початковий режим — інвентар
+mode = "inventory";
+
+// Обрані слоти для обох режимів
+
+used_selected_slot = 0;
