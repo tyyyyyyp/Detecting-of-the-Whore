@@ -78,24 +78,7 @@ var dash_speed = 10;           // Speed multiplier for dash (adjust as needed)
 var cooldown_bar_width = 100;  // Width of the cooldown bar
 var bar_height = 10;           // Height of the cooldown bar
 
-// Перевірка для пощадження ворога
-if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))) {
 
-    var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
-    if (target != noone) {
-        // Перевірка, чи в монстра HP менше 35
-        if (target.hp < 35) {
-           audio_play_sound(snd_press,0,false)
-            target.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
-
-            // Створюємо тригер після пощадження монстра
-            instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
-        } else {
-            // Можна додати інший код, якщо монстр має більше 35 HP (наприклад, показати повідомлення)
-          
-        }
-    }
-}
 
 
 // 🔐 Якщо магія ще заблокована — чекаємо
@@ -107,43 +90,7 @@ if (magic_locked) {
     }
 }
 
-// ⚔️ Перевірка атаки
-if (!attack_pending && !magic_locked && distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {
-   
-   var target = instance_find(obj_enemy, 0);
-    if (target != noone && mana >= 20) {
-        // Запускаємо ефект
-        instance_create_layer(1165, 410, "Effects", obj_attack_effect);
 
-        audio_play_sound(Sound4,0,false)
-        attack_pending = true;
-        attack_timer = room_speed; // 1 секунда
-        attack_target = target;
-
-        // 🔐 Блокуємо кнопку на 10 секунд
-        magic_locked = true;
-        magic_lock_timer = room_speed * 10;
-        show_debug_message("Магія заблокована на 10 секунд");
-    }
-}
-
-// ⏳ Чекаємо завершення ефекту
-if (attack_pending) {
-    attack_timer -= 1;
-
-    if (attack_timer <= 0) {
-        if (instance_exists(attack_target)) {
-            attack_target.hp -= 100;
-            mana -= 20;
-
-            // Якщо ворог мертвий — тригер
-            if (attack_target.hp <= 0) {
-                instance_create_layer(800, 400, "Instances", obj_trigger_exit);
-            }
-        }
-        attack_pending = false;
-    }
-}
 // Кулдаун хілки
 if (heal_locked) {
     heal_lock_timer -= 1;
@@ -187,18 +134,49 @@ if (magic_locked) {
     }
 }
 
+// 🛠 Функція перевірки активного предмета
+function is_item_used_by_name(item_name) {
+    for (var i = 0; i < array_length(global.used_items); i++) {
+        if (global.used_items[i] == item_name) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // ⚔️ Перевірка атаки
 if (!attack_pending && !magic_locked && distance_to_object(obj_button_magic) < 50 && keyboard_check_pressed(ord("E"))) {
-   
-   var target_2 = instance_find(obj_enemy_2, 0);
-    if (target_2 != noone && mana >= 20) {
+    
+    // Знаходимо найближчого ворога серед obj_enemy та obj_enemy_2
+    var nearest_enemy = noone;
+    var nearest_distance = 999999;
+
+    for (var i = 0; i < instance_number(obj_enemy); i++) {
+        var e = instance_find(obj_enemy, i);
+        var d = point_distance(x, y, e.x, e.y);
+        if (d < nearest_distance) {
+            nearest_distance = d;
+            nearest_enemy = e;
+        }
+    }
+
+    for (var i = 0; i < instance_number(obj_enemy_2); i++) {
+        var e2 = instance_find(obj_enemy_2, i);
+        var d2 = point_distance(x, y, e2.x, e2.y);
+        if (d2 < nearest_distance) {
+            nearest_distance = d2;
+            nearest_enemy = e2;
+        }
+    }
+
+    if (nearest_enemy != noone && mana >= 20) {
         // Запускаємо ефект
         instance_create_layer(1165, 410, "Effects", obj_attack_effect);
 
-        audio_play_sound(Sound4,0,false)
+        audio_play_sound(Sound4, 0, false);
         attack_pending = true;
         attack_timer = room_speed; // 1 секунда
-        attack_target = target_2;
+        attack_target = nearest_enemy;
 
         // 🔐 Блокуємо кнопку на 10 секунд
         magic_locked = true;
@@ -207,39 +185,86 @@ if (!attack_pending && !magic_locked && distance_to_object(obj_button_magic) < 5
     }
 }
 
-// ⏳ Чекаємо завершення ефекту
+// ⏳ Завершення ефекту атаки
 if (attack_pending) {
     attack_timer -= 1;
 
     if (attack_timer <= 0) {
         if (instance_exists(attack_target)) {
-            attack_target.hp -= 100;
+            var damage;
+            if (is_item_used_by_name("Question Staff")) {
+                damage = irandom_range(1, 100);
+            } else {
+                damage = irandom_range(1, 20);
+            }
+
+            attack_target.hp -= damage;
             mana -= 20;
+
+            // Зберігаємо позицію і значення урону для показу в draw
+            damage_popup_value = damage;
+            damage_popup_timer = room_speed; // 1 секунда
+            damage_popup_x = attack_target.x;
+            damage_popup_y = attack_target.y - 32;
+
+            show_debug_message("Завдано шкоди: " + string(damage));
 
             // Якщо ворог мертвий — тригер
             if (attack_target.hp <= 0) {
                 instance_create_layer(800, 400, "Instances", obj_trigger_exit);
+
+                // 🔥 Підрахунок вбивств магією
+                global.magic_kills += 1;
+                show_debug_message("Магічних вбивств: " + string(global.magic_kills));
             }
         }
         attack_pending = false;
     }
 }
 
+
+
+
+
 // Перевірка для пощадження ворога
 if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))) {
 
-    var target = instance_find(obj_enemy, 0);  // Знайти перший об'єкт obj_enemy на сцені
-    if (target_2 != noone) {
-        // Перевірка, чи в монстра HP менше 35
-        if (target_2.hp < 35) {
-           audio_play_sound(snd_press,0,false)
-            target_2.hp = 0;  // Встановлюємо, що монстр пощаджений (можна змінити, якщо потрібно інше значення)
+    var nearest_enemy = noone;
+    var nearest_distance = 999999;
 
-            // Створюємо тригер після пощадження монстра
-            instance_create_layer(400, 300, "Instances", obj_trigger_exit);  // Створюємо тригер в конкретному місці
+    // Перевірка obj_enemy
+    for (var i = 0; i < instance_number(obj_enemy); i++) {
+        var e = instance_find(obj_enemy, i);
+        var d = point_distance(x, y, e.x, e.y);
+        if (d < nearest_distance) {
+            nearest_distance = d;
+            nearest_enemy = e;
+        }
+    }
+
+    // Перевірка obj_enemy_2
+    for (var i = 0; i < instance_number(obj_enemy_2); i++) {
+        var e2 = instance_find(obj_enemy_2, i);
+        var d2 = point_distance(x, y, e2.x, e2.y);
+        if (d2 < nearest_distance) {
+            nearest_distance = d2;
+            nearest_enemy = e2;
+        }
+    }
+
+    // Якщо знайдено ворога поруч
+    if (nearest_enemy != noone) {
+        if (nearest_enemy.hp < 35) {
+            audio_play_sound(snd_press, 0, false);
+            nearest_enemy.hp = 0;
+
+            // 🔢 Додаємо до пощаджених
+            global.spared_enemies += 1;
+            show_debug_message("Пощаджено ворогів: " + string(global.spared_enemies));
+
+            instance_create_layer(400, 300, "Instances", obj_trigger_exit);
         } else {
-            // Можна додати інший код, якщо монстр має більше 35 HP (наприклад, показати повідомлення)
-          
+            show_debug_message("Ворог занадто сильний для пощади.");
         }
     }
 }

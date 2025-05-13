@@ -22,3 +22,9 @@ mode = "inventory";
 // Обрані слоти для обох режимів
 
 used_selected_slot = 0;
+if (!variable_global_exists("magic_kills")) {
+    global.magic_kills = 0;
+}
+if (!variable_global_exists("spared_enemies")) {
+    global.spared_enemies = 0;
+}

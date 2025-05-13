@@ -1,7 +1,6 @@
 if (!global.inventory_open) exit;
 
-draw_set_color(c_black);
-draw_rectangle(50, 50, 300, 500, false);
+
 
 draw_set_color(c_white);
 draw_text(110, 60, "INVENTORY:");
@@ -40,3 +39,9 @@ for (var j = 0; j < array_length(global.used_items); j++) {
     draw_set_color(c_white);
     draw_text(130, used_y, global.used_items[j]);
 }
+// --- Вивід кількості магічних вбивств ---
+draw_set_color(c_aqua);
+draw_text(400, 60, "kills: " + string(global.magic_kills));
+
+draw_set_color(c_lime);
+draw_text(400, 90, "dismissed: " + string(global.spared_enemies));

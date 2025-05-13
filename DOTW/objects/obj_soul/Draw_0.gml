@@ -27,3 +27,13 @@ draw_text(265, 50, "Mana: " + string(mana));
 if (show_heal_message) {
     draw_text(320, 240, "Ви пощадили монстра!"); // Виводимо текст в центрі екрану
 }
+if (damage_popup_timer > 0) {
+    var popup_y = damage_popup_y - ((room_speed - damage_popup_timer) * 1); // рух вгору
+
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_red);
+    draw_text(damage_popup_x, popup_y, string(damage_popup_value));
+
+    damage_popup_timer--;
+}

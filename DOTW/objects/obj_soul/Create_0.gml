@@ -37,3 +37,7 @@ magic_locked = false;
 magic_lock_timer = 0;
 heal_locked = false;
 heal_lock_timer = 0;
+damage_popup_value = 0;
+damage_popup_timer = 0;
+damage_popup_x = 0;
+damage_popup_y = 0;
