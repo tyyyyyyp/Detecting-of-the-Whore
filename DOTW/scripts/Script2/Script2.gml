@@ -42,6 +42,11 @@ function save_game()
 file_text_write_real(file, global.spared_enemies);
 file_text_writeln(file);
 
+// Зберігаємо стан тригера (чи був використаний)
+file_text_write_real(file, global.trigger_used ? 1 : 0);
+file_text_writeln(file);
+
+
 
     file_text_close(file);
 }
@@ -110,6 +115,11 @@ function load_game()
 				// Зчитуємо кількість пощаджених ворогів
 global.spared_enemies = file_text_read_real(file);
 file_text_readln(file);
+
+// Зчитуємо стан тригера
+global.trigger_used = file_text_read_real(file);
+file_text_readln(file);
+
 
         file_text_close(file);
 		

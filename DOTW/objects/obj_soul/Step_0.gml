@@ -193,7 +193,7 @@ if (attack_pending) {
         if (instance_exists(attack_target)) {
             var damage;
             if (is_item_used_by_name("Question Staff")) {
-                damage = irandom_range(1, 100);
+                damage = irandom_range(1, 8888888);
             } else {
                 damage = irandom_range(1, 20);
             }
@@ -209,9 +209,13 @@ if (attack_pending) {
 
             show_debug_message("Завдано шкоди: " + string(damage));
 
-            // Якщо ворог мертвий — тригер
-            if (attack_target.hp <= 0) {
-                instance_create_layer(800, 400, "Instances", obj_trigger_exit);
+        if (attack_target.hp <= 0) {
+    var trigger = instance_find(obj_trigger_exit, 0);
+    if (trigger != noone) {
+        trigger.start_move = true;
+    }
+
+
 
                 // 🔥 Підрахунок вбивств магією
                 global.magic_kills += 1;
@@ -262,9 +266,12 @@ if (distance_to_object(obj_button_free) < 50 && keyboard_check_pressed(ord("E"))
             global.spared_enemies += 1;
             show_debug_message("Пощаджено ворогів: " + string(global.spared_enemies));
 
-            instance_create_layer(400, 300, "Instances", obj_trigger_exit);
-        } else {
-            show_debug_message("Ворог занадто сильний для пощади.");
-        }
+           if (attack_target.hp <= 0) {
+    var trigger = instance_find(obj_trigger_exit, 0);
+    if (trigger != noone) {
+        trigger.start_move = true;
     }
+		   }
+		}
+	}
 }

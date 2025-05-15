@@ -10,3 +10,9 @@ global.player_x = x;
 global.player_y = y;
 x = global.player_x;
 y = global.player_y;
+
+if (variable_global_exists("saved_random_number")) {
+    random_number = global.saved_random_number;
+} else {
+    random_number = irandom_range(1, 100);
+}

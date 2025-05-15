@@ -9,19 +9,20 @@ draw_rectangle(5, 5, 205, 35, false);  // Background for health bar with margin
 draw_set_color(c_red);
 draw_rectangle(10, 10, 10 + (health / max_health) * 200, 30, false);
 
-// Mana Bar with margin and background
-draw_set_color(c_black);  // Set color for background
-draw_rectangle(5, 35, 205, 65, false);  // Background for mana bar with margin
+// Mana Bar Background (з підкладкою, нижче на 30 пікселів)
+draw_set_color(c_black);
+draw_rectangle(5, 40, 205, 70, false);  // Тло для мани
 
-// Draw Mana Bar (with margin)
+// Draw Mana Bar (нижче, під здоров'ям)
 draw_set_color(c_blue);
-draw_rectangle(250, 10, 250 + (mana / max_mana) * 200, 35, false);
+draw_rectangle(10, 45, 10 + (mana / max_mana) * 200, 65, false);
+
 
 // Draw Text for Health and Mana
 draw_set_color(c_white);
 draw_set_font(Font1);
-draw_text(10, 50, "Health: " + string(health));
-draw_text(265, 50, "Mana: " + string(mana));
+draw_text(360, 25, "Health: " + string(health));
+draw_text(360, 60, "Mana: " + string(mana));
 
 // Малюємо повідомлення на екрані, якщо монстр був пощаджений
 if (show_heal_message) {

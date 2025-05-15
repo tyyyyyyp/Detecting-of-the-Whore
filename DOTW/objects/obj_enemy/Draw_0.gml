@@ -2,8 +2,8 @@ draw_self()
 
 
 // Малюємо текст здоров'я
-var display_x = display_get_width() - 250; // Позиція по горизонталі (правий верхній кут)
-var display_y = 70; // Позиція по вертикалі (відстань від верху)
+var display_x = display_get_width() - 200; // Позиція по горизонталі (правий верхній кут)
+var display_y = 75; // Позиція по вертикалі (відстань від верху)
 
 draw_text(display_x, display_y, "HP: " + string(hp)); // Виводимо здоров'я
 

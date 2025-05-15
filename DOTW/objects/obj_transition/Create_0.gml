@@ -8,3 +8,12 @@ global.previous_room = room;  // Зберігаємо поточну кімна�
 target_rm = 0
 target_x = 0
 target_y = 0
+// Перевірка: якщо змінна ще не існує — створюємо її
+if (!variable_global_exists("trigger_used")) {
+    global.trigger_used = false;
+}
+
+// Якщо прапорець встановлений — знищити себе
+if (global.trigger_used) {
+    instance_destroy();
+}

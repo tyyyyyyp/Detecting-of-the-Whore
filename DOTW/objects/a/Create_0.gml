@@ -8,4 +8,13 @@ global.room_texts = ds_map_create();
 // Додаємо текст для конкретних кімнат
 ds_map_add(global.room_texts,rm_trash , "abcd");
 ds_map_add(global.room_texts, rm_gost, "ifg");
-ds_map_add(global.room_texts, Room4, "higk!");
+ds_map_add(global.room_texts, Room4, "dfasdf!" + "fsdfdfg");
+// У Create Event або десь один раз
+text_lines = [
+];
+current_line = 0;
+current_char = 0;
+text_time = -1;
+text_display_time = -1;
+line_delay = 720; // затримка перед наступним рядком
+showing_text = false;

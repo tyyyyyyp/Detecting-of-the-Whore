@@ -7,3 +7,6 @@ global.my_camera = cam;
 // Прив’язуємо до viewport 0
 view_set_camera(0, global.my_camera);
 view_set_visible(0, true);
+if (!variable_global_exists("trigger_used")) {
+    global.trigger_used = false;
+}
